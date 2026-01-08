@@ -25,6 +25,7 @@
                 <div class="header-controls">
                     <span id="user-info"></span>
                     <button class="tab-btn header-tab-btn" data-tab="allocation">Workload Allocation</button>
+                    <button class="tab-btn header-tab-btn" data-tab="instructions">📖 Instructions</button>
                     <button class="tab-btn header-tab-btn" data-tab="settings">⚙ Settings</button>
                     <button id="signout-button" class="secondary-btn">Sign Out</button>
                 </div>
@@ -148,6 +149,108 @@
                 </div>
 
                 <button id="save-allocation" class="primary-btn">Save Allocation</button>
+            </div>
+
+            <!-- Instructions Tab -->
+            <div id="instructions-tab" class="tab-content">
+                <h2>📖 How to Use Academic Work Tracker</h2>
+
+                <div class="instructions-section">
+                    <h3>🚀 Getting Started</h3>
+                    <ol>
+                        <li><strong>Sign In:</strong> Click "Sign in with Google" to authenticate with your Google account</li>
+                        <li><strong>Grant Permissions:</strong> Allow the app to create and manage Google Sheets on your behalf</li>
+                        <li><strong>Automatic Setup:</strong> The app will automatically create a new Google Sheet to store your data</li>
+                        <li><strong>Start Tracking:</strong> Begin entering your daily work hours!</li>
+                    </ol>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>📅 Daily Tracking</h3>
+                    <ol>
+                        <li><strong>Select Date:</strong> Use the date picker or navigation buttons (◀ Day, Day ▶) to choose which day to track</li>
+                        <li><strong>Choose View:</strong> Switch between Day, Week, or Month view depending on your preference</li>
+                        <li><strong>Enter Hours:</strong> Input the hours spent on each task (you can use decimals like 1.5 for 1 hour 30 minutes)</li>
+                        <li><strong>Auto-Save:</strong> Data automatically saves to Google Sheets after 2 seconds of inactivity</li>
+                        <li><strong>Manual Save:</strong> Click "Save to Google Sheets" to save immediately</li>
+                    </ol>
+                    <p><strong>Tip:</strong> Use the "Today" button to quickly jump to today's date!</p>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>📊 Statistics</h3>
+                    <p>The Statistics tab helps you visualize your workload distribution:</p>
+                    <ul>
+                        <li><strong>Period Selection:</strong> Choose from This Week, This Month, This Quarter, This Year, or a Custom Range</li>
+                        <li><strong>Total Hours Chart:</strong> See total hours spent in each category</li>
+                        <li><strong>Category Breakdown:</strong> View a pie chart showing the percentage distribution</li>
+                        <li><strong>Weekly Trend:</strong> Track how your daily hours change over time</li>
+                        <li><strong>Summary Stats:</strong> View total hours, average per day, and category percentages</li>
+                    </ul>
+                    <p><strong>Tip:</strong> Click "Refresh" after selecting a period to update the statistics!</p>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>🎯 Workload Allocation</h3>
+                    <p>Set and track your target workload distribution:</p>
+                    <ol>
+                        <li><strong>Set Targets:</strong> Enter your desired percentage allocation for Research, Teaching, and Service (must total 100%)</li>
+                        <li><strong>View Actuals:</strong> See your actual allocation based on the last 30 days of data</li>
+                        <li><strong>Compare:</strong> Use the chart to compare your target vs. actual allocation</li>
+                        <li><strong>Save:</strong> Click "Save Allocation" to store your targets</li>
+                    </ol>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>⚙ Settings</h3>
+                    <p>Customize the tracker to fit your needs:</p>
+                    <ul>
+                        <li><strong>Task Categories:</strong> Add or remove tasks within each category (Research, Teaching, Service, Other)</li>
+                        <li><strong>Week Start Day:</strong> Choose which day your week starts (Sunday, Monday, etc.)</li>
+                        <li><strong>Reminders:</strong> Enable reminders to notify you when you haven't recorded work for several days</li>
+                        <li><strong>Google Sheet:</strong> Create a new sheet or connect to an existing one</li>
+                    </ul>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>💡 Tips & Best Practices</h3>
+                    <ul>
+                        <li><strong>Daily Tracking:</strong> Try to record your hours daily for the most accurate data</li>
+                        <li><strong>Week View:</strong> Use Week view to quickly fill in multiple days at once</li>
+                        <li><strong>Access Your Sheet:</strong> You can open and view your Google Sheet directly in Google Sheets - the sheet ID is shown in Settings</li>
+                        <li><strong>Data Ownership:</strong> You own your data completely - it's stored in your personal Google Sheet</li>
+                        <li><strong>Backup:</strong> Your Google Sheet is automatically backed up by Google Drive</li>
+                        <li><strong>Offline Work:</strong> Changes are cached locally and sync when you click Save</li>
+                    </ul>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>🔒 Privacy & Security</h3>
+                    <ul>
+                        <li><strong>Your Data Only:</strong> This app only accesses YOUR Google Sheets - nobody else can see your data</li>
+                        <li><strong>No Backend Server:</strong> All authentication happens directly between you and Google</li>
+                        <li><strong>Revoke Access:</strong> You can revoke app access anytime from your Google Account settings</li>
+                        <li><strong>Local Storage:</strong> Some settings are cached in your browser for convenience</li>
+                    </ul>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>❓ Troubleshooting</h3>
+                    <ul>
+                        <li><strong>Data Not Saving:</strong> Check your internet connection and try clicking "Save to Google Sheets" manually</li>
+                        <li><strong>Sheet Not Loading:</strong> Your sheet may have been deleted - click "Create New Sheet" in Settings</li>
+                        <li><strong>Sign In Issues:</strong> Clear your browser cache and cookies, then try signing in again</li>
+                        <li><strong>Charts Not Showing:</strong> Click "Refresh" in the Statistics tab to reload the charts</li>
+                    </ul>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>🔗 Useful Links</h3>
+                    <ul>
+                        <li><strong>View Your Google Sheet:</strong> Go to Settings to find your Sheet ID, then visit <code>https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID</code></li>
+                        <li><strong>Manage App Permissions:</strong> Visit <a href="https://myaccount.google.com/permissions" target="_blank">Google Account Permissions</a></li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Settings Tab -->

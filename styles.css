@@ -526,6 +526,55 @@ button {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
+/* Instructions */
+.instructions-section {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.instructions-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.instructions-section ol,
+.instructions-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.instructions-section li {
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+}
+
+.instructions-section p {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.instructions-section code {
+    background: var(--bg-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.instructions-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.instructions-section a:hover {
+    text-decoration: underline;
+}
+
 /* Settings */
 .settings-section {
     background: var(--card-bg);
