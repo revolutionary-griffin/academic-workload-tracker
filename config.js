@@ -50,9 +50,7 @@ const CONFIG = {
                 'Marking',
                 'Admin',
                 'Meetings',
-                'Tutorial Guide',
-                'Video Recording',
-                'MA Supervision',
+                'Tutorial Guides',
                 'Office Hours'
             ]
         },
@@ -66,9 +64,7 @@ const CONFIG = {
                 'Training',
                 'Public Engagement',
                 'Mentoring',
-                'Ethics Review',
                 'Misc',
-                'SAC Role'
             ]
         },
         other: {
