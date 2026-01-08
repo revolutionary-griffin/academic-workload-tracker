@@ -12,9 +12,54 @@
         <div id="login-screen" class="screen">
             <div class="login-container">
                 <h1>Academic Work Tracker</h1>
-                <p>Track your academic workload seamlessly with Google Sheets integration</p>
+                <p class="login-subtitle">Track your academic workload seamlessly with Google Sheets integration</p>
                 <button id="authorize-button" class="primary-btn">Sign in with Google</button>
                 <div id="login-status"></div>
+
+                <!-- Information Box -->
+                <div class="login-info-box">
+                    <h3>⚠️ About the Google Security Warning</h3>
+                    <p>When you sign in, Google will show a warning that this app is "unverified." This is normal and expected. Here's why:</p>
+
+                    <div class="info-section">
+                        <h4>🔒 Why you'll see a warning:</h4>
+                        <ul>
+                            <li>This app hasn't gone through Google's verification process (which is only needed for apps accessing other people's data)</li>
+                            <li>You're only accessing <strong>your own</strong> Google Sheets, not anyone else's data</li>
+                            <li>Google shows this warning for all unverified apps as a precaution</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>✅ How to proceed safely:</h4>
+                        <ol>
+                            <li>Click "Sign in with Google" above</li>
+                            <li>When you see the warning, click <strong>"Advanced"</strong></li>
+                            <li>Then click <strong>"Go to Academic Work Tracker (unsafe)"</strong></li>
+                            <li>Review the permissions and click <strong>"Allow"</strong></li>
+                        </ol>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>🛡️ Your data is safe:</h4>
+                        <ul>
+                            <li><strong>Your data stays yours:</strong> All data is stored in YOUR personal Google Sheet</li>
+                            <li><strong>No backend server:</strong> This app runs entirely in your browser</li>
+                            <li><strong>No one else can access your data:</strong> Not even the app owner can see your information</li>
+                            <li><strong>You're in control:</strong> You can revoke access anytime from your <a href="https://myaccount.google.com/permissions" target="_blank">Google Account settings</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section trust-indicators">
+                        <h4>🔐 Trust Indicators:</h4>
+                        <ul>
+                            <li>✓ Open source code available on GitHub</li>
+                            <li>✓ Client-side only (no server storing your data)</li>
+                            <li>✓ Each user creates their own separate Google Sheet</li>
+                            <li>✓ Transparent permissions (only requests access to Google Sheets)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 

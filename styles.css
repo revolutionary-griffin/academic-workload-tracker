@@ -53,11 +53,82 @@ body {
     color: var(--primary-color);
 }
 
-.login-container p {
+.login-subtitle {
     font-size: 1.1rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
     max-width: 500px;
+}
+
+.login-info-box {
+    max-width: 700px;
+    margin-top: 3rem;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.login-info-box h3 {
+    color: var(--warning-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.login-info-box > p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.info-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-section h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.info-section ul,
+.info-section ol {
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.info-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.info-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.info-section a:hover {
+    text-decoration: underline;
+}
+
+.trust-indicators {
+    border-left-color: var(--success-color);
+}
+
+.trust-indicators ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.trust-indicators li {
+    padding-left: 0.5rem;
 }
 
 /* Header */
