@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Work Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="login-container">
+                <h1>Academic Work Tracker</h1>
+                <p>Track your academic workload seamlessly with Google Sheets integration</p>
+                <button id="authorize-button" class="primary-btn">Sign in with Google</button>
+                <div id="login-status"></div>
+            </div>
+        </div>
+
+        <!-- Main App Screen -->
+        <div id="main-screen" class="screen hidden">
+            <header>
+                <h1>Academic Work Tracker</h1>
+                <div class="header-controls">
+                    <span id="user-info"></span>
+                    <button class="tab-btn header-tab-btn" data-tab="allocation">Workload Allocation</button>
+                    <button class="tab-btn header-tab-btn" data-tab="settings">⚙ Settings</button>
+                    <button id="signout-button" class="secondary-btn">Sign Out</button>
+                </div>
+            </header>
+
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="tracker">Daily Tracker</button>
+                <button class="tab-btn" data-tab="statistics">Statistics</button>
+            </nav>
+
+            <!-- Reminder Banner -->
+            <div id="reminder-banner" class="reminder-banner hidden">
+                <span id="reminder-message"></span>
+                <button id="dismiss-reminder">✕</button>
+            </div>
+
+            <!-- Daily Tracker Tab -->
+            <div id="tracker-tab" class="tab-content active">
+                <div class="controls">
+                    <div class="date-navigation">
+                        <button id="prev-week" class="nav-btn">◀ Week</button>
+                        <button id="prev-day" class="nav-btn">◀ Day</button>
+                        <input type="date" id="current-date">
+                        <button id="next-day" class="nav-btn">Day ▶</button>
+                        <button id="next-week" class="nav-btn">Week ▶</button>
+                        <button id="today-btn" class="primary-btn">Today</button>
+                    </div>
+                    <div class="view-controls">
+                        <label>View:
+                            <select id="view-mode">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="tracker-grid" class="tracker-grid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <div class="summary-panel">
+                    <h3>Daily Summary</h3>
+                    <div id="daily-summary"></div>
+                </div>
+
+                <button id="save-data" class="primary-btn save-btn">Save to Google Sheets</button>
+            </div>
+
+            <!-- Statistics Tab -->
+            <div id="statistics-tab" class="tab-content">
+                <div class="stats-controls">
+                    <label>Period:
+                        <select id="stats-period">
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="quarter">This Quarter</option>
+                            <option value="year">This Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </label>
+                    <div id="custom-range" class="hidden">
+                        <input type="date" id="stats-start-date">
+                        <span>to</span>
+                        <input type="date" id="stats-end-date">
+                    </div>
+                    <button id="refresh-stats" class="primary-btn">Refresh</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Hours</h3>
+                        <canvas id="total-hours-chart"></canvas>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Category Breakdown</h3>
+                        <canvas id="category-chart"></canvas>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Weekly Trend</h3>
+                        <canvas id="trend-chart"></canvas>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Summary</h3>
+                        <div id="stats-summary"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workload Allocation Tab -->
+            <div id="allocation-tab" class="tab-content">
+                <h2>Workload Allocation</h2>
+                <p>Set your expected workload allocation percentages (total must equal 100%)</p>
+
+                <div class="allocation-grid">
+                    <div class="allocation-category">
+                        <h3>Research</h3>
+                        <label>Target %: <input type="number" id="research-target" min="0" max="100" value="40"></label>
+                        <div id="research-actual" class="actual-value"></div>
+                    </div>
+                    <div class="allocation-category">
+                        <h3>Teaching</h3>
+                        <label>Target %: <input type="number" id="teaching-target" min="0" max="100" value="40"></label>
+                        <div id="teaching-actual" class="actual-value"></div>
+                    </div>
+                    <div class="allocation-category">
+                        <h3>Service</h3>
+                        <label>Target %: <input type="number" id="service-target" min="0" max="100" value="20"></label>
+                        <div id="service-actual" class="actual-value"></div>
+                    </div>
+                </div>
+
+                <div class="allocation-total">
+                    <strong>Total: <span id="allocation-total">100</span>%</strong>
+                    <span id="allocation-warning" class="warning-text hidden">⚠ Total must equal 100%</span>
+                </div>
+
+                <div class="allocation-chart">
+                    <canvas id="allocation-comparison-chart"></canvas>
+                </div>
+
+                <button id="save-allocation" class="primary-btn">Save Allocation</button>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings-tab" class="tab-content">
+                <h2>Settings</h2>
+
+                <div class="settings-section">
+                    <h3>Task Categories</h3>
+                    <p>Customize your task categories and subtasks</p>
+
+                    <div id="categories-config">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Display Settings</h3>
+                    <label>
+                        Week starts on:
+                        <select id="week-start-day">
+                            <option value="0">Sunday</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Reminders</h3>
+                    <label>
+                        <input type="checkbox" id="enable-reminders" checked>
+                        Enable reminders for unrecorded days
+                    </label>
+                    <label>
+                        Remind me after
+                        <input type="number" id="reminder-days" min="1" max="7" value="2">
+                        days without recording
+                    </label>
+                    <label>
+                        <input type="checkbox" id="exclude-weekends" checked>
+                        Exclude weekends from reminder count
+                    </label>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Google Sheet</h3>
+                    <p>Connected Sheet ID: <span id="sheet-id-display"></span></p>
+                    <button id="create-new-sheet" class="secondary-btn">Create New Sheet</button>
+                    <button id="select-sheet" class="secondary-btn">Select Different Sheet</button>
+                </div>
+
+                <button id="save-settings" class="primary-btn">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
